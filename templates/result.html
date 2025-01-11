@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результат предсказания</title>
+</head>
+<body>
+    <h1>Результат</h1>
+    {% if error %}
+        <p style="color: red;">Ошибка: {{ error }}</p>
+    {% else %}
+        <p>Риск: {{ risk }}</p>
+        <p>Вероятность: {{ probability }}</p>
+        <p>Хэш транзакции: <a href="https://sepolia.etherscan.io/tx/0x{{ transaction_hash }}" target="_blank">{{ transaction_hash }}</a></p>
+    {% endif %}
+</body>
+</html>

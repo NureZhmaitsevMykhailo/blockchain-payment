@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підписка</title>
+</head>
+<body>
+    <h1>Оберіть підписку</h1>
+    <form action="/process-payment" method="POST">
+        <label for="private_key">Ваш закритий ключ:</label><br>
+        <input type="password" id="private_key" name="private_key" required><br><br>
+
+        <label for="subscription_type">Тип підписки:</label><br>
+        {% for subscription, price in prices.items() %}
+            <input type="radio" id="{{ subscription }}" name="subscription_type" value="{{ subscription }}" required>
+            <label for="{{ subscription }}">{{ subscription }} - {{ price }} ETH</label><br>
+        {% endfor %}
+
+        <button type="submit">Оплатити</button>
+    </form>
+</body>
+</html>
